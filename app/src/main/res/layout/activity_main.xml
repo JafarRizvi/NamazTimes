@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,7 +11,16 @@
     tools:context="org.duas.drjr.namaztimes.MainActivity">
 
     <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="@string/today_date" />
+
+    <fragment android:name="org.duas.drjr.namaztimes.DailyTimeFragment"
+        android:id="@+id/fragment_dailytime_list"
+        android:layout_weight="2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:layout_height="0dp"
+        tools:layout="@layout/fragment_dailytime_list" />
+
+</LinearLayout>
