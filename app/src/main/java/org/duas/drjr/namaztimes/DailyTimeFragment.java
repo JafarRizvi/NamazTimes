@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 
 import org.duas.drjr.namaztimes.dummy.DailyTimeContent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A fragment representing a list of Items.
  * <p>
@@ -25,6 +28,7 @@ public class DailyTimeFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private List<DailyTimeContent.DailyTime> dailyTimeList;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -55,7 +59,7 @@ public class DailyTimeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dailytime_list, container, false);
+        View view = inflater.inflate(R.layout.dailytime_row, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -66,7 +70,9 @@ public class DailyTimeFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyDailyTimeRecyclerViewAdapter(DailyTimeContent.ITEMS, mListener));
+
+            prepareDailyTimeData();
+            recyclerView.setAdapter(new MyDailyTimeRecyclerViewAdapter(dailyTimeList, mListener));
         }
         return view;
     }
@@ -101,5 +107,17 @@ public class DailyTimeFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         void onListFragmentInteraction(DailyTimeContent.DailyTime item);
+    }
+
+
+    private void prepareDailyTimeData() {
+
+        dailyTimeList = new ArrayList<DailyTimeContent.DailyTime>();
+
+        DailyTimeContent.DailyTime dailyTime = new DailyTimeContent.DailyTime("Fajr", "Azan Fajr Time", "04:00am");
+        dailyTimeList.add(dailyTime);
+
+        dailyTime = new DailyTimeContent.DailyTime("Zohar", "Azan Zohar Time", "12:15pm");
+        dailyTimeList.add(dailyTime);
     }
 }

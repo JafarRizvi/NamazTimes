@@ -24,15 +24,16 @@ public class MyDailyTimeRecyclerViewAdapter extends RecyclerView.Adapter<MyDaily
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_dailytime, parent, false);
+                .inflate(R.layout.dailytime_row, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
+        holder.mTitleView.setText(mValues.get(position).title);
         holder.mContentView.setText(mValues.get(position).description);
+        holder.mTimeView.setText(mValues.get(position).time);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,15 +54,17 @@ public class MyDailyTimeRecyclerViewAdapter extends RecyclerView.Adapter<MyDaily
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
+        public final TextView mTitleView;
         public final TextView mContentView;
+        public final TextView mTimeView;
         public DailyTime mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
+            mTitleView = (TextView) view.findViewById(R.id.title);
             mContentView = (TextView) view.findViewById(R.id.description);
+            mTimeView = (TextView) view.findViewById(R.id.time);
         }
 
         @Override

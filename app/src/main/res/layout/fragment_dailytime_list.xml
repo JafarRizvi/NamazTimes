@@ -10,4 +10,4 @@
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="org.duas.drjr.namaztimes.DailyTimeFragment"
-    tools:listitem="@layout/fragment_dailytime" />
+    tools:listitem="@layout/dailytime_row" />

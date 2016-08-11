@@ -22,7 +22,7 @@ public class DailyTimeContent {
      */
     public static final Map<String, DailyTime> ITEM_MAP = new HashMap<String, DailyTime>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 5;
 
     static {
         // Add some sample items.
@@ -33,7 +33,7 @@ public class DailyTimeContent {
 
     private static void addItem(DailyTime item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+        ITEM_MAP.put(item.title, item);
     }
 
     private static DailyTime createDummyItem(int position) {
@@ -53,12 +53,12 @@ public class DailyTimeContent {
      * A dummy item representing a piece of content.
      */
     public static class DailyTime {
-        public final String id;
+        public final String title;
         public final String description;
         public final String time;
 
-        public DailyTime(String id, String description, String time) {
-            this.id = id;
+        public DailyTime(String title, String description, String time) {
+            this.title = title;
             this.description = description;
             this.time = time;
         }

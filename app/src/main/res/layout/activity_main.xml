@@ -11,16 +11,23 @@
     tools:context="org.duas.drjr.namaztimes.MainActivity">
 
     <TextView
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
         android:text="@string/today_date" />
 
-    <fragment android:name="org.duas.drjr.namaztimes.DailyTimeFragment"
-        android:id="@+id/fragment_dailytime_list"
-        android:layout_weight="2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        tools:layout="@layout/fragment_dailytime_list" />
+    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/dailytime_list_main"
+        android:name="org.duas.drjr.namaztimes.DailyTimeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginRight="@dimen/text_margin"
+        app:layoutManager="LinearLayoutManager"
+        tools:context="org.duas.drjr.namaztimes.DailyTimeFragment"
+        tools:listitem="@layout/dailytime_row" />
 
 </LinearLayout>
