@@ -211,17 +211,17 @@ public class PrayerTime {
     }
 
     private double computeMaghrib() {
-        double t = 18.0 / 24.0;
-        double G = 0.0;
+        double time = 18.0 / 24.0;
+        double Angle = 0.0;
         if (calcMethod == CalculationMethod.JAFARI)
-            G = 4.0;
+            Angle = 4.0;
         else if (calcMethod == CalculationMethod.TEHRAN)
-            G = 4.5;
-        return computeTime(G, t);
+            Angle = 4.5;
+        return computeTime(Angle, time);
     }
 
     private double computeIsha() {
-        double t = 18.0 / 24.0;
+        double time = 18.0 / 24.0;
         double IshaAngle = 14.0;
 
         // Jafari   double[] Jvalues = {16, 0, 4, 0, 14};
@@ -261,7 +261,7 @@ public class PrayerTime {
                 break;
         }
 
-        return computeTime(IshaAngle, t);
+        return computeTime(IshaAngle, time);
     }
 
     // compute time for a given angle G
@@ -424,13 +424,13 @@ public class PrayerTime {
         // Custom   double[] Cvalues = {18, 1, 0, 0, 17};
 
 
-        if (calcMethod == CalculationMethod.JAFARI) // Maghrib
-        {
-            times[5] = times[4] + 4.0 / 60;  // 4 minutes after sunset
-        } else if (calcMethod == CalculationMethod.TEHRAN) // Maghrib
-        {
-            times[5] = times[4] + 4.5 / 60;  // 4.5 minutes after sunset
-        }
+//        if (calcMethod == CalculationMethod.JAFARI) // Maghrib
+//        {
+//            times[5] = times[4] + 4.0 / 60;  // 4 minutes after sunset
+//        } else if (calcMethod == CalculationMethod.TEHRAN) // Maghrib
+//        {
+//            times[5] = times[4] + 4.5 / 60;  // 4.5 minutes after sunset
+//        }
 
         if (calcMethod == CalculationMethod.MAKKAH) // Isha
         {
