@@ -8,8 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnListFragmentInteractionListener {
@@ -24,6 +28,16 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Calendar c = Calendar.getInstance();
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+        String formattedDate = df.format(c.getTime());
+        // formattedDate have current date/time
+        Toast.makeText(this, formattedDate, Toast.LENGTH_SHORT).show();
+
+        // Now we display formattedDate value in TextView
+        TextView txtView = (TextView) findViewById(R.id.timenow);
+        txtView.setText(formattedDate);
 
         prepareDailyTimeData();
 
@@ -31,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         Context context = recyclerView.getContext();
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new MyDailyTimeRecyclerViewAdapter(dailyTimeList, mListener));
+
 
     }
 
