@@ -3,6 +3,7 @@ package org.duas.drjr.namaztimes;
 import org.duas.drjr.namaztimes.DailyTimeFragment.OnListFragmentInteractionListener;
 import org.duas.drjr.namaztimes.namaztime.DailyTimeContent;
 import org.duas.drjr.namaztimes.namaztime.PrayTime;
+import org.duas.drjr.namaztimes.namaztime.PrayerTime;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         double timezone = 5;
         // Test Prayer times here
         PrayTime prayers = new PrayTime();
-
+        PrayerTime prayer2 = new PrayerTime();
         prayers.setTimeFormat(Time12);
         prayers.setCalcMethod(Jafari);
         prayers.setAsrJuristic(Shafii);
@@ -102,39 +103,38 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         Calendar cal = Calendar.getInstance();
         cal.setTime(now);
 
-        ArrayList<String> prayerTimes = prayers.getPrayerTimes(cal,
-                latitude, longitude, timezone);
-        ArrayList<String> prayerNames = prayers.getTimeNames();
+        ArrayList<String> prayerTimes = prayers.getPrayerTimes(cal, latitude, longitude, timezone);
+        ArrayList<String> prayerTimes2 = prayer2.getPrayerTimes(cal, latitude, longitude, timezone);
 
         dailyTimeList = new ArrayList<DailyTimeContent.DailyTime>();
 
         DailyTimeContent.DailyTime dailyTime;
+//
+//        dailyTime = new DailyTimeContent.DailyTime("Sehri End", "Sehri End Time", prayerTimes.get(0), prayerTimes2.get(0));
+//        dailyTimeList.add(dailyTime);
+//
+//        dailyTime = new DailyTimeContent.DailyTime("Subh-e-Sadiq", "Astro Twilight Time", prayerTimes.get(0), prayerTimes2.get(0));
+//        dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Sehri End", "Sehri End Time", prayerTimes.get(0));
+        dailyTime = new DailyTimeContent.DailyTime("Fajar", "Azan-Namaz Fajar Time", prayerTimes.get(0), prayerTimes2.get(0));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Subh-e-Sadiq", "Astro Twilight Time", prayerTimes.get(0));
+        dailyTime = new DailyTimeContent.DailyTime("Sun Rise", "Sun Rise", prayerTimes.get(1), prayerTimes2.get(1));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Fajar", "Azan-Namaz Fajar Time", prayerTimes.get(0));
+        dailyTime = new DailyTimeContent.DailyTime("Zohar", "Azan-Namaz Zohar Time", prayerTimes.get(2), prayerTimes2.get(2));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Sun Rise", "Sun Rise", prayerTimes.get(1));
+        dailyTime = new DailyTimeContent.DailyTime("Asar", "Azan-Namaz Asar Time", prayerTimes.get(3), prayerTimes2.get(3));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Zohar", "Azan-Namaz Zohar Time", prayerTimes.get(2));
+        dailyTime = new DailyTimeContent.DailyTime("Sun Set", "Sun Set", prayerTimes.get(4), prayerTimes2.get(4));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Asar", "Azan-Namaz Asar Time", prayerTimes.get(3));
+        dailyTime = new DailyTimeContent.DailyTime("Maghrib", "Azan-Namaz Maghrib Time", prayerTimes.get(5), prayerTimes2.get(5));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Sun Set", "Sun Set", prayerTimes.get(4));
-        dailyTimeList.add(dailyTime);
-
-        dailyTime = new DailyTimeContent.DailyTime("Maghrib", "Azan-Namaz Maghrib Time", prayerTimes.get(5));
-        dailyTimeList.add(dailyTime);
-
-        dailyTime = new DailyTimeContent.DailyTime("Asar", "Azan-Namaz Asar Time", prayerTimes.get(6));
+        dailyTime = new DailyTimeContent.DailyTime("Isha", "Azan-Namaz Isha Time", prayerTimes.get(6), prayerTimes2.get(6));
         dailyTimeList.add(dailyTime);
     }
 

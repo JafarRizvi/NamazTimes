@@ -34,6 +34,7 @@ public class MyDailyTimeRecyclerViewAdapter extends RecyclerView.Adapter<MyDaily
         holder.mTitleView.setText(mValues.get(position).title);
         holder.mContentView.setText(mValues.get(position).description);
         holder.mTimeView.setText(mValues.get(position).time);
+        holder.mTime2View.setText(mValues.get(position).time2);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +58,7 @@ public class MyDailyTimeRecyclerViewAdapter extends RecyclerView.Adapter<MyDaily
         public final TextView mTitleView;
         public final TextView mContentView;
         public final TextView mTimeView;
+        public final TextView mTime2View;
         public DailyTime mItem;
 
         public ViewHolder(View view) {
@@ -65,6 +67,7 @@ public class MyDailyTimeRecyclerViewAdapter extends RecyclerView.Adapter<MyDaily
             mTitleView = (TextView) view.findViewById(R.id.title);
             mContentView = (TextView) view.findViewById(R.id.description);
             mTimeView = (TextView) view.findViewById(R.id.time);
+            mTime2View = (TextView) view.findViewById(R.id.time2);
         }
 
         @Override

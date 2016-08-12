@@ -614,12 +614,12 @@ public class PrayTime {
         }
 
         for (int i = 0; i < 7; i++) {
-            if (this.getTimeFormat() == this.getTime12()) {
-                result.add(floatToTime12(times[i], false));
+            if (this.getTimeFormat() == this.getTime24()) {
+                result.add(floatToTime24(times[i]));
             } else if (this.getTimeFormat() == this.getTime12NS()) {
                 result.add(floatToTime12(times[i], true));
             } else {
-                result.add(floatToTime24(times[i]));
+                result.add(floatToTime12(times[i], false));
             }
         }
         return result;

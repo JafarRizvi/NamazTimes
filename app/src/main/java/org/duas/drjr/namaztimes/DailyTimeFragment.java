@@ -71,7 +71,6 @@ public class DailyTimeFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
 
-            prepareDailyTimeData();
             recyclerView.setAdapter(new MyDailyTimeRecyclerViewAdapter(dailyTimeList, mListener));
         }
         return view;
@@ -109,15 +108,4 @@ public class DailyTimeFragment extends Fragment {
         void onListFragmentInteraction(DailyTimeContent.DailyTime item);
     }
 
-
-    private void prepareDailyTimeData() {
-
-        dailyTimeList = new ArrayList<DailyTimeContent.DailyTime>();
-
-        DailyTimeContent.DailyTime dailyTime = new DailyTimeContent.DailyTime("Fajr", "Azan Fajr Time", "04:00am");
-        dailyTimeList.add(dailyTime);
-
-        dailyTime = new DailyTimeContent.DailyTime("Zohar", "Azan Zohar Time", "12:15pm");
-        dailyTimeList.add(dailyTime);
-    }
 }

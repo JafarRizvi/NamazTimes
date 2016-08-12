@@ -37,7 +37,7 @@ public class DailyTimeContent {
     }
 
     private static DailyTime createDummyItem(int position) {
-        return new DailyTime(String.valueOf(position), "Item " + position, makeDetails(position));
+        return new DailyTime(String.valueOf(position), "Item " + position, makeDetails(position), "--");
     }
 
     private static String makeDetails(int position) {
@@ -56,11 +56,13 @@ public class DailyTimeContent {
         public final String title;
         public final String description;
         public final String time;
+        public final String time2;
 
-        public DailyTime(String title, String description, String time) {
+        public DailyTime(String title, String description, String time, String time2) {
             this.title = title;
             this.description = description;
             this.time = time;
+            this.time2 = time2;
         }
 
         @Override
