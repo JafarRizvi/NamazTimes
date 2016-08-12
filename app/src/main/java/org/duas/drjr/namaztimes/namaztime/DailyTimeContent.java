@@ -1,4 +1,4 @@
-package org.duas.drjr.namaztimes.dummy;
+package org.duas.drjr.namaztimes.namaztime;
 
 import java.util.ArrayList;
 import java.util.HashMap;

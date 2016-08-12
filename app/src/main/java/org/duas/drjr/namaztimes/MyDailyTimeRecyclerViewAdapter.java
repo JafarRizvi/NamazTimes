@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.duas.drjr.namaztimes.DailyTimeFragment.OnListFragmentInteractionListener;
-import org.duas.drjr.namaztimes.dummy.DailyTimeContent.DailyTime;
+import org.duas.drjr.namaztimes.namaztime.DailyTimeContent.DailyTime;
 
 import java.util.List;
 

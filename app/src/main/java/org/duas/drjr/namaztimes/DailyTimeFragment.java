@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.duas.drjr.namaztimes.dummy.DailyTimeContent;
+import org.duas.drjr.namaztimes.namaztime.DailyTimeContent;
 
 import java.util.ArrayList;
 import java.util.List;
