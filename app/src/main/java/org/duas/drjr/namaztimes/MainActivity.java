@@ -1,15 +1,19 @@
 package org.duas.drjr.namaztimes;
 
 import org.duas.drjr.namaztimes.DailyTimeFragment.OnListFragmentInteractionListener;
+import org.duas.drjr.namaztimes.namaztime.CalculationMethod;
 import org.duas.drjr.namaztimes.namaztime.DailyTimeContent;
 import org.duas.drjr.namaztimes.namaztime.PrayTime;
 import org.duas.drjr.namaztimes.namaztime.PrayerTime;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,47 +22,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements OnListFragmentInteractionListener {
+
+    private float latitude;
+    private float longitude;
+    private float timezone;
 
     private OnListFragmentInteractionListener mListener;
     private List<DailyTimeContent.DailyTime> dailyTimeList;
     private RecyclerView recyclerView;
     private MyDailyTimeRecyclerViewAdapter dtAdapter;
-
-    // ---------------------- Global Variables --------------------
-    private int calcMethod; // caculation method
-    private int asrJuristic; // Juristic method for Asr
-    private int dhuhrMinutes; // minutes after mid-day for Dhuhr
-    private int adjustHighLats; // adjusting method for higher latitudes
-    private int timeFormat; // time format
-    private double lat; // latitude
-    private double lng; // longitude
-    private double timeZone; // time-zone
-    private double JDate; // Julian date
-    // ------------------------------------------------------------
-    // Calculation Methods
-    private int Jafari; // Ithna Ashari
-    private int Karachi; // University of Islamic Sciences, Karachi
-    private int ISNA; // Islamic Society of North America (ISNA)
-    private int MWL; // Muslim World League (MWL)
-    private int Makkah; // Umm al-Qura, Makkah
-    private int Egypt; // Egyptian General Authority of Survey
-    private int Custom; // Custom Setting
-    private int Tehran; // Institute of Geophysics, University of Tehran
-    // Juristic Methods
-    private int Shafii; // Shafii (standard)
-    private int Hanafi; // Hanafi
-    // Adjusting Methods for Higher Latitudes
-    private int None; // No adjustment
-    private int MidNight; // middle of night
-    private int OneSeventh; // 1/7th of night
-    private int AngleBased; // angle/60th of night
-    // Time Formats
-    private int Time24; // 24-hour format
-    private int Time12; // 12-hour format
-    private int Time12NS; // 12-hour format with no suffix
-    private int Floating; // floating point number
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,26 +52,32 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         TextView txtView = (TextView) findViewById(R.id.timenow);
         txtView.setText(formattedDate);
 
+        latitude = (float) 33.54711732937501;  // River Gardens
+        longitude = (float) 73.15452607031239;
+        timezone = 5;
+
+        SharedPreferences settings = getSharedPreferences("LOCATION", 0);
+        EditText et = (EditText) findViewById(R.id.editLatitude);
+        et.setText(Float.toString(settings.getFloat("LAT", latitude)));
+        et = (EditText) findViewById(R.id.editLongitude);
+        et.setText(Float.toString(settings.getFloat("LNG", longitude)));
+        et = (EditText) findViewById(R.id.editTimeZone);
+        et.setText(Float.toString(settings.getFloat("TZone", timezone)));
+
         prepareDailyTimeData();
 
         recyclerView = (RecyclerView) findViewById(R.id.dailytime_list_main);
-        Context context = recyclerView.getContext();
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new MyDailyTimeRecyclerViewAdapter(dailyTimeList, mListener));
     }
 
     private void prepareDailyTimeData() {
-
-        double latitude = 33.54711732937501;
-        double longitude = 73.15452607031239;
-        double timezone = 5;
         // Test Prayer times here
         PrayTime prayers = new PrayTime();
         PrayerTime prayer2 = new PrayerTime();
-        prayers.setTimeFormat(Time12);
-        prayers.setCalcMethod(Jafari);
-        prayers.setAsrJuristic(Shafii);
-        prayers.setAdjustHighLats(AngleBased);
+        prayers.setTimeFormat(1);
+        prayers.setCalcMethod(0);
+        prayers.setAsrJuristic(0);
+        prayers.setAdjustHighLats(3);
         int[] offsets = {0, 0, 0, 0, 0, 0, 0}; // {Fajr,Sunrise,Dhuhr,Asr,Sunset,Maghrib,Isha}
         prayers.tune(offsets);
 
@@ -136,6 +118,17 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
 
         dailyTime = new DailyTimeContent.DailyTime("Isha", "Azan-Namaz Isha Time", prayerTimes.get(6), prayerTimes2.get(6));
         dailyTimeList.add(dailyTime);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        SharedPreferences settings = getSharedPreferences("LOCATION", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putFloat("LAT", latitude);
+        editor.putFloat("LNG", longitude);
+        editor.putFloat("TZone", timezone);
     }
 
     @Override

@@ -5,7 +5,7 @@ package org.duas.drjr.namaztimes.namaztime;
  */
 
 public enum JuristicMethod {
-    JAFARI, // Jafari
-    SHAFAI, // Shafii (standard)
-    HANAFI  // Hanafi
+    SHAFAI,  // Shafii (standard)
+    HANAFI,  // Hanafi
+    JAFARI   // Jafari
 }

@@ -56,6 +56,21 @@ public class PrayerTime {
         return computeDayTimes();
     }
 
+    public void setCalcMethod(CalculationMethod calculationMethod) {
+        this.calcMethod = calculationMethod;
+    }
+
+    public void setAsrJuristic(JuristicMethod juristicMethod) {
+        this.asrJuristic = juristicMethod;
+    }
+
+    public void setTimeFormat(TimeFormat format) {
+        this.timeFormat = format;
+    }
+
+    public void setAdjustHighLats(HighLatitudeAdjustment adjustment) {
+        this.adjustHighLats = adjustment;
+    }
 
     // compute prayer times at given julian date
     private ArrayList<String> computeDayTimes() {
@@ -83,7 +98,6 @@ public class PrayerTime {
         double[] CTimes = {Fajr, Sunrise, Dhuhr, Asr, Sunset, Maghrib, Isha};
 
         return CTimes;
-
     }
 
     // ---------------------- Calculation Functions -----------------------

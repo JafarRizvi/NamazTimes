@@ -5,8 +5,8 @@ package org.duas.drjr.namaztimes.namaztime;
  */
 
 public enum TimeFormat {
-    Hour12,
     Hour24,
-    Floating,
-    Hour12xx
+    Hour12xx,
+    Hour12,
+    Floating
 }
