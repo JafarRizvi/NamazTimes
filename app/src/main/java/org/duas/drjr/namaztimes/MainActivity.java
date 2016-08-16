@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,17 +59,25 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         timezone = 5;
 
         SharedPreferences settings = getSharedPreferences("LOCATION", 0);
-        EditText et = (EditText) findViewById(R.id.editLatitude);
-        et.setText(Float.toString(settings.getFloat("LAT", latitude)));
-        et = (EditText) findViewById(R.id.editLongitude);
-        et.setText(Float.toString(settings.getFloat("LNG", longitude)));
-        et = (EditText) findViewById(R.id.editTimeZone);
-        et.setText(Float.toString(settings.getFloat("TZone", timezone)));
+        final EditText etLat = (EditText) findViewById(R.id.editLatitude);
+        etLat.setText(Float.toString(settings.getFloat("LAT", latitude)));
+        final EditText etLng = (EditText) findViewById(R.id.editLongitude);
+        etLng.setText(Float.toString(settings.getFloat("LNG", longitude)));
+        final EditText etTZ = (EditText) findViewById(R.id.editTimeZone);
+        etTZ.setText(Float.toString(settings.getFloat("TZone", timezone)));
+
+        Button button = (Button) findViewById(R.id.Calculate);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                latitude = Float.parseFloat(etLat.getText().toString());
+                longitude = Float.parseFloat(etLng.getText().toString());
+                timezone = Float.parseFloat(etTZ.getText().toString());
+                prepareDailyTimeData();
+            }
+        });
 
         prepareDailyTimeData();
-
-        recyclerView = (RecyclerView) findViewById(R.id.dailytime_list_main);
-        recyclerView.setAdapter(new MyDailyTimeRecyclerViewAdapter(dailyTimeList, mListener));
     }
 
     private void prepareDailyTimeData() {
@@ -118,6 +128,9 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
 
         dailyTime = new DailyTimeContent.DailyTime("Isha", "Azan-Namaz Isha Time", prayerTimes.get(6), prayerTimes2.get(6));
         dailyTimeList.add(dailyTime);
+
+        recyclerView = (RecyclerView) findViewById(R.id.dailytime_list_main);
+        recyclerView.setAdapter(new MyDailyTimeRecyclerViewAdapter(dailyTimeList, mListener));
     }
 
     @Override
