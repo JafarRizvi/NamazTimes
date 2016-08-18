@@ -3,6 +3,7 @@ package org.duas.drjr.namaztimes;
 import org.duas.drjr.namaztimes.DailyTimeFragment.OnListFragmentInteractionListener;
 import org.duas.drjr.namaztimes.namaztime.CalculationMethod;
 import org.duas.drjr.namaztimes.namaztime.DailyTimeContent;
+import org.duas.drjr.namaztimes.namaztime.DayPoint;
 import org.duas.drjr.namaztimes.namaztime.PrayTime;
 import org.duas.drjr.namaztimes.namaztime.PrayerTime;
 
@@ -101,32 +102,32 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         dailyTimeList = new ArrayList<DailyTimeContent.DailyTime>();
 
         DailyTimeContent.DailyTime dailyTime;
-//
-//        dailyTime = new DailyTimeContent.DailyTime("Sehri End", "Sehri End Time", prayerTimes.get(0), prayerTimes2.get(0));
-//        dailyTimeList.add(dailyTime);
-//
-//        dailyTime = new DailyTimeContent.DailyTime("Subh-e-Sadiq", "Astro Twilight Time", prayerTimes.get(0), prayerTimes2.get(0));
-//        dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Fajar", "Azan-Namaz Fajar Time", prayerTimes.get(0), prayerTimes2.get(0));
+        dailyTime = new DailyTimeContent.DailyTime("Sehri End", "Sehri End Time", prayerTimes.get(0), prayerTimes2.get(DayPoint.Imsak.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Sun Rise", "Sun Rise", prayerTimes.get(1), prayerTimes2.get(1));
+        dailyTime = new DailyTimeContent.DailyTime("Fajar", "Azan-Namaz Fajar Time", prayerTimes.get(0), prayerTimes2.get(DayPoint.Fajr.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Zohar", "Azan-Namaz Zohar Time", prayerTimes.get(2), prayerTimes2.get(2));
+        dailyTime = new DailyTimeContent.DailyTime("Sun Rise", "Sun Rise", prayerTimes.get(1), prayerTimes2.get(DayPoint.Sunrise.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Asar", "Azan-Namaz Asar Time", prayerTimes.get(3), prayerTimes2.get(3));
+        dailyTime = new DailyTimeContent.DailyTime("Zohar", "Azan-Namaz Zohar Time", prayerTimes.get(2), prayerTimes2.get(DayPoint.Dhuhr.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Sun Set", "Sun Set", prayerTimes.get(4), prayerTimes2.get(4));
+        dailyTime = new DailyTimeContent.DailyTime("Asar", "Azan-Namaz Asar Time", prayerTimes.get(3), prayerTimes2.get(DayPoint.Asr.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Maghrib", "Azan-Namaz Maghrib Time", prayerTimes.get(5), prayerTimes2.get(5));
+        dailyTime = new DailyTimeContent.DailyTime("Sun Set", "Sun Set", prayerTimes.get(4), prayerTimes2.get(DayPoint.Sunset.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Isha", "Azan-Namaz Isha Time", prayerTimes.get(6), prayerTimes2.get(6));
+        dailyTime = new DailyTimeContent.DailyTime("Maghrib", "Azan-Namaz Maghrib Time", prayerTimes.get(5), prayerTimes2.get(DayPoint.Maghrib.ordinal()));
+        dailyTimeList.add(dailyTime);
+
+        dailyTime = new DailyTimeContent.DailyTime("Isha", "Azan-Namaz Isha Time", prayerTimes.get(6), prayerTimes2.get(DayPoint.Isha.ordinal()));
+        dailyTimeList.add(dailyTime);
+
+        dailyTime = new DailyTimeContent.DailyTime("MidNight", "Mid night", prayerTimes.get(6), prayerTimes2.get(DayPoint.Midnight.ordinal()));
         dailyTimeList.add(dailyTime);
 
         recyclerView = (RecyclerView) findViewById(R.id.dailytime_list_main);

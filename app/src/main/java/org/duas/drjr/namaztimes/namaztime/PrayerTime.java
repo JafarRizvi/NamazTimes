@@ -85,17 +85,19 @@ public class PrayerTime {
     // compute prayer times at given julian date
     private double[] computeTimes() {
 
-        double Fajr = this.computeFajar();
-        double Sunrise = this.computeSunRise();
-        double Dhuhr = this.computeZohar();
-        double Asr = this.computeAsr();
-        double Sunset = this.computeSunSet();
-        double Maghrib = this.computeMaghrib();
-        double Isha = this.computeIsha();
+        double[] DayTimes = new double[DayPoint.values().length];
 
-        double[] CTimes = {Fajr, Sunrise, Dhuhr, Asr, Sunset, Maghrib, Isha};
+        DayTimes[DayPoint.Fajr.ordinal()] = this.computeFajar();
+        DayTimes[DayPoint.Sunrise.ordinal()] = this.computeSunRise();
+        DayTimes[DayPoint.Dhuhr.ordinal()] = this.computeZohar();
+        DayTimes[DayPoint.Asr.ordinal()] = this.computeAsr();
+        DayTimes[DayPoint.Sunset.ordinal()] = this.computeSunSet();
+        DayTimes[DayPoint.Maghrib.ordinal()] = this.computeMaghrib();
+        DayTimes[DayPoint.Isha.ordinal()] = this.computeIsha();
+        DayTimes[DayPoint.Imsak.ordinal()] = DayTimes[DayPoint.Fajr.ordinal()] - 10 * 60 * 60;
+        DayTimes[DayPoint.Midnight.ordinal()] = (DayTimes[DayPoint.Fajr.ordinal()] + DayTimes[DayPoint.Maghrib.ordinal()]) / 2.0;
 
-        return CTimes;
+        return DayTimes;
     }
 
     // ---------------------- Calculation Functions -----------------------
@@ -390,30 +392,6 @@ public class PrayerTime {
         return radiansToDegrees(val);
     }
 
-    // ---------------------- Time-Zone Functions -----------------------
-    // compute local time-zone for a specific date
-    private double getTimeZone1() {
-        TimeZone timez = TimeZone.getDefault();
-        double hoursDiff = (timez.getRawOffset() / 1000.0) / 3600;
-        return hoursDiff;
-    }
-
-    // compute base time-zone of the system
-    private double getBaseTimeZone() {
-        TimeZone timez = TimeZone.getDefault();
-        double hoursDiff = (timez.getRawOffset() / 1000.0) / 3600;
-        return hoursDiff;
-
-    }
-
-    // detect daylight saving in a given date
-    private double detectDaylightSaving() {
-        TimeZone timez = TimeZone.getDefault();
-        double hoursDiff = timez.getDSTSavings();
-        return hoursDiff;
-    }
-
-
     // ---------------------- Julian Date Functions -----------------------
     // calculate julian date from a calendar date
     private double julianDate(int year, int month, int day) {
@@ -441,7 +419,7 @@ public class PrayerTime {
         }
 
         double DhuhrMinutes = 0;
-        times[2] += DhuhrMinutes / 60; // Dhuhr
+        times[DayPoint.Dhuhr.ordinal()] += DhuhrMinutes / 60; // Dhuhr
 
 
         // Jafari   double[] Jvalues = {16, 0, 4, 0, 14};
@@ -456,15 +434,15 @@ public class PrayerTime {
 
 //        if (calcMethod == CalculationMethod.JAFARI) // Maghrib
 //        {
-//            times[5] = times[4] + 4.0 / 60;  // 4 minutes after sunset
+//            times[DayPoint.Maghrib.ordinal()] = times[DayPoint.Sunset.ordinal()] + 4.0 / 60;  // 4 minutes after sunset
 //        } else if (calcMethod == CalculationMethod.TEHRAN) // Maghrib
 //        {
-//            times[5] = times[4] + 4.5 / 60;  // 4.5 minutes after sunset
+//            times[DayPoint.Maghrib.ordinal()] = times[DayPoint.Sunset.ordinal()] + 4.5 / 60;  // 4.5 minutes after sunset
 //        }
 
         if (calcMethod == CalculationMethod.MAKKAH) // Isha
         {
-            times[6] = times[5] + 90.0 / 60; // 90 minutes after maghrib
+            times[DayPoint.Isha.ordinal()] = times[DayPoint.Maghrib.ordinal()] + 90.0 / 60; // 90 minutes after maghrib
         }
 
         if (this.adjustHighLats != HighLatitudeAdjustment.None) {
@@ -486,7 +464,8 @@ public class PrayerTime {
             return result;
         }
 
-        for (int i = 0; i < 7; i++) {
+        int count = DayPoint.values().length;
+        for (int i = 0; i < count; i++) {
             if (this.timeFormat == TimeFormat.Hour24) {
                 result.add(floatToTime24(times[i]));
             } else if (timeFormat == TimeFormat.Hour12) {
@@ -577,7 +556,7 @@ public class PrayerTime {
 
     // adjust Fajr, Isha and Maghrib for locations in higher latitudes
     private double[] adjustHighLatTimes(double[] times) {
-        double nightTime = timeDiff(times[4], times[1]); // sunset to sunrise
+        double nightTime = timeDiff(times[DayPoint.Sunset.ordinal()], times[DayPoint.Sunrise.ordinal()]); // sunset to sunrise
 
         double FajarAngle = 16;
         switch (calcMethod) {
@@ -611,8 +590,8 @@ public class PrayerTime {
         // Adjust Fajr
         double FajrDiff = nightPortion(FajarAngle) * nightTime;
 
-        if (Double.isNaN(times[0]) || timeDiff(times[0], times[1]) > FajrDiff) {
-            times[0] = times[1] - FajrDiff;
+        if (Double.isNaN(times[DayPoint.Fajr.ordinal()]) || timeDiff(times[DayPoint.Fajr.ordinal()], times[DayPoint.Sunrise.ordinal()]) > FajrDiff) {
+            times[DayPoint.Fajr.ordinal()] = times[DayPoint.Sunrise.ordinal()] - FajrDiff;
         }
 
         // Jafari   double[] Jvalues = {16, 0, 4, 0, 14};
@@ -656,8 +635,8 @@ public class PrayerTime {
         }
 
         double IshaDiff = this.nightPortion(IshaAngle) * nightTime;
-        if (Double.isNaN(times[6]) || this.timeDiff(times[4], times[6]) > IshaDiff) {
-            times[6] = times[4] + IshaDiff;
+        if (Double.isNaN(times[DayPoint.Isha.ordinal()]) || this.timeDiff(times[DayPoint.Sunset.ordinal()], times[DayPoint.Isha.ordinal()]) > IshaDiff) {
+            times[DayPoint.Isha.ordinal()] = times[DayPoint.Sunset.ordinal()] + IshaDiff;
         }
 
         // Adjust Maghrib
@@ -670,8 +649,8 @@ public class PrayerTime {
             MaghribAngle = 0;
 
         double MaghribDiff = nightPortion(MaghribAngle) * nightTime;
-        if (Double.isNaN(times[5]) || this.timeDiff(times[4], times[5]) > MaghribDiff) {
-            times[5] = times[4] + MaghribDiff;
+        if (Double.isNaN(times[DayPoint.Maghrib.ordinal()]) || this.timeDiff(times[DayPoint.Sunset.ordinal()], times[DayPoint.Maghrib.ordinal()]) > MaghribDiff) {
+            times[DayPoint.Maghrib.ordinal()] = times[DayPoint.Sunset.ordinal()] + MaghribDiff;
         }
 
         return times;
