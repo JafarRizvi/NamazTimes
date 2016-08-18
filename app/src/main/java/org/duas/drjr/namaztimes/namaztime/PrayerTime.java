@@ -1,11 +1,8 @@
 package org.duas.drjr.namaztimes.namaztime;
 
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 
 /**
@@ -24,6 +21,7 @@ public class PrayerTime {
     private double lng; // longitude
     private double timeZone; // time-zone
     private double JDate; // Julian date
+
     private String InvalidTime; // The string used for invalid times
 
     // return prayer times for a given date
@@ -102,46 +100,59 @@ public class PrayerTime {
 
     // ---------------------- Calculation Functions -----------------------
     // References:
-    // http://www.ummah.net/astronomy/saltime
+    // http://praytimes.org/calculation/
+    // https://en.wikipedia.org/wiki/Salah_times
     // http://aa.usno.navy.mil/faq/docs/SunApprox.html
-    // compute declination angle of sun and equation of time
-    private double[] sunPosition(double jd) {
+    // compute Declination Angle of Sun
+    // The declination of the Sun is the angle between the rays of the sun and the plane of the earth equator.
+    // The declination of the Sun changes continuously throughout the year.
+    // This is a consequence of the Earth's tilt, i.e. the difference in its rotational and revolutionary axes.
+    private double computeSunDeclination(double julian_date) {
 
-        double D = jd - 2451545;
-        double g = fixangle(357.529 + 0.98560028 * D);
-        double q = fixangle(280.459 + 0.98564736 * D);
-        double L = fixangle(q + (1.915 * dsin(g)) + (0.020 * dsin(2 * g)));
+        double D = julian_date - 2451545;
+        double g = fixAngle(357.529 + 0.98560028 * D);
+        double q = fixAngle(280.459 + 0.98564736 * D);
+        double L = fixAngle(q + (1.915 * dsin(g)) + (0.020 * dsin(2 * g)));
+
+        double e = 23.439 - (0.00000036 * D);
+        double SunDeclination = darcsin(dsin(e) * dsin(L));
+
+        return SunDeclination;
+    }
+
+    // ---------------------- Calculation Functions -----------------------
+    // References:
+    // http://praytimes.org/calculation/
+    // https://en.wikipedia.org/wiki/Salah_times
+    // http://aa.usno.navy.mil/faq/docs/SunApprox.html
+    // compute Equation of Time
+    // The equation of time is the difference between time as read from a sundial and a clock.
+    // It results from an apparent irregular movement of the Sun caused by a combination of the
+    // obliquity of the Earth's rotation axis and the eccentricity of its orbit.
+    // The sundial can be ahead (fast) by as much as 16 min 33 s (around November 3)
+    // or fall behind by as much as 14 min 6 s (around February 12)
+    private double computeEquationOfTime(double julian_date) {
+
+        double D = julian_date - 2451545;
+        double g = fixAngle(357.529 + 0.98560028 * D);
+        double q = fixAngle(280.459 + 0.98564736 * D);
+        double L = fixAngle(q + (1.915 * dsin(g)) + (0.020 * dsin(2 * g)));
 
         // double R = 1.00014 - 0.01671 * [self dcos:g] - 0.00014 * [self dcos:
         // (2*g)];
         double e = 23.439 - (0.00000036 * D);
-        double d = darcsin(dsin(e) * dsin(L));
+
         double RA = (darctan2((dcos(e) * dsin(L)), (dcos(L)))) / 15.0;
-        RA = fixhour(RA);
-        double EqT = q / 15.0 - RA;
-        double[] sPosition = new double[2];
-        sPosition[0] = d;
-        sPosition[1] = EqT;
+        RA = fixHour(RA);
+        double EquationOfTime = q / 15.0 - RA;
 
-        return sPosition;
-    }
-
-    // compute equation of time
-    private double equationOfTime(double jd) {
-        double eq = sunPosition(jd)[1];
-        return eq;
-    }
-
-    // compute declination angle of sun
-    private double sunDeclination(double jd) {
-        double d = sunPosition(jd)[0];
-        return d;
+        return EquationOfTime;
     }
 
     // compute mid-day (Dhuhr, Zawal) time
     private double computeMidDay(double t) {
-        double T = equationOfTime(this.JDate + t);
-        double Z = fixhour(12 - T);
+        double T = computeEquationOfTime(this.JDate + t);
+        double Z = fixHour(12 - T);
         return Z;
     }
 
@@ -156,7 +167,8 @@ public class PrayerTime {
             step = 1;
         else if (asrJuristic == JuristicMethod.JAFARI)
             step = 1;
-        double D = sunDeclination(this.JDate + t);
+
+        double D = computeSunDeclination(this.JDate + t);
         double Angle = -darccot(step + dtan(Math.abs(this.lat - D)));
         return computeTime(Angle, t);
     }
@@ -225,13 +237,13 @@ public class PrayerTime {
     }
 
     private double computeMaghrib() {
-        double time = 18.0 / 24.0;
+        double initTime = 18.0 / 24.0;
         double Angle = 0.0;
         if (calcMethod == CalculationMethod.JAFARI)
             Angle = 4.0;
         else if (calcMethod == CalculationMethod.TEHRAN)
             Angle = 4.5;
-        return computeTime(Angle, time);
+        return computeTime(Angle, initTime);
     }
 
     private double computeIsha() {
@@ -276,12 +288,12 @@ public class PrayerTime {
         }
 
         return computeTime(IshaAngle, time);
+
     }
 
     // compute time for a given angle G
     private double computeTime(double G, double t) {
-
-        double D = sunDeclination(this.JDate + t);
+        double D = computeSunDeclination(this.JDate + t);
         double Z = computeMidDay(t);
         double Beg = -dsin(G) - dsin(D) * dsin(this.lat);
         double Mid = dcos(D) * dcos(this.lat);
@@ -291,21 +303,36 @@ public class PrayerTime {
     }
 
     // ---------------------- Trigonometric Functions -----------------------
-    // range reduce angle in degrees.
-    private double fixangle(double a) {
+    // Reduce Angle in Rangle 0 to 359 degrees.
+    private double fixAngle(double angle) {
+        //  Method 1
+        //  angle = angle - (360 * (Math.floor(angle / 360.0)));
+        //  angle = angle < 0 ? (angle + 360) : angle;
 
-        a = a - (360 * (Math.floor(a / 360.0)));
+        //  Method 2
+        while (angle >= 360)
+            angle -= 360;
 
-        a = a < 0 ? (a + 360) : a;
+        while (angle < 0)
+            angle += 360;
 
-        return a;
+        return angle;
     }
 
-    // range reduce hours to 0..23
-    private double fixhour(double a) {
-        a = a - 24.0 * Math.floor(a / 24.0);
-        a = a < 0 ? (a + 24) : a;
-        return a;
+    // Reduce hours in Range 0 to 23 hours
+    private double fixHour(double hour) {
+        //   Method 1
+        //   hour = hour - 24.0 * Math.floor(hour / 24.0);
+        //   hour = hour < 0 ? (hour + 24) : hour;
+
+        //  Method 2
+        while (hour >= 24)
+            hour -= 24;
+
+        while (hour < 0)
+            hour += 24;
+
+        return hour;
     }
 
     // radian to degree
@@ -313,7 +340,7 @@ public class PrayerTime {
         return ((alpha * 180.0) / Math.PI);
     }
 
-    // deree to radian
+    // degree to radian
     private double DegreesToRadians(double alpha) {
         return ((alpha * Math.PI) / 180.0);
     }
@@ -405,17 +432,6 @@ public class PrayerTime {
         return JD;
     }
 
-    // convert a calendar date to julian date (second method)
-//    private double calcJD(int year, int month, int day) {
-//        double J1970 = 2440588.0;
-//        Date date = new Date(year, month - 1, day);
-//
-//        double ms = date.getTime(); // # of milliseconds since midnight Jan 1,
-//        // 1970
-//        double days = Math.floor(ms / (1000.0 * 60.0 * 60.0 * 24.0));
-//
-//        return J1970 + days - 0.5;
-//    }
 
     // adjust times in a prayer time array
     private double[] adjustTimes(double[] times) {
@@ -491,7 +507,7 @@ public class PrayerTime {
             return InvalidTime;
         }
 
-        time = fixhour(time + 0.5 / 60.0); // add 0.5 minutes to round
+        time = fixHour(time + 0.5 / 60.0); // add 0.5 minutes to round
         int hours = (int) Math.floor(time);
         double minutes = Math.floor((time - hours) * 60.0);
 
@@ -514,7 +530,7 @@ public class PrayerTime {
             return InvalidTime;
         }
 
-        time = fixhour(time + 0.5 / 60); // add 0.5 minutes to round
+        time = fixHour(time + 0.5 / 60); // add 0.5 minutes to round
         int hours = (int) Math.floor(time);
         double minutes = Math.floor((time - hours) * 60);
         String suffix, result;
@@ -685,7 +701,7 @@ public class PrayerTime {
 
     // compute the difference between two times
     private double timeDiff(double time1, double time2) {
-        return fixhour(time2 - time1);
+        return fixHour(time2 - time1);
     }
 
 
