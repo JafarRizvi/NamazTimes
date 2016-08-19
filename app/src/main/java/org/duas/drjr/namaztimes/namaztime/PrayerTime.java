@@ -87,15 +87,16 @@ public class PrayerTime {
 
         double[] DayTimes = new double[DayPoint.values().length];
 
+        DayTimes[DayPoint.FastingStart.ordinal()] = this.computeFastingStart();
         DayTimes[DayPoint.Fajr.ordinal()] = this.computeFajar();
+        DayTimes[DayPoint.AstroTwilight.ordinal()] = this.computeAstroTwilight();
         DayTimes[DayPoint.Sunrise.ordinal()] = this.computeSunRise();
         DayTimes[DayPoint.Dhuhr.ordinal()] = this.computeZohar();
         DayTimes[DayPoint.Asr.ordinal()] = this.computeAsr();
         DayTimes[DayPoint.Sunset.ordinal()] = this.computeSunSet();
         DayTimes[DayPoint.Maghrib.ordinal()] = this.computeMaghrib();
         DayTimes[DayPoint.Isha.ordinal()] = this.computeIsha();
-        DayTimes[DayPoint.Imsak.ordinal()] = DayTimes[DayPoint.Fajr.ordinal()] - 10 * 60 * 60;
-        DayTimes[DayPoint.Midnight.ordinal()] = (DayTimes[DayPoint.Fajr.ordinal()] + DayTimes[DayPoint.Maghrib.ordinal()]) / 2.0;
+        DayTimes[DayPoint.Midnight.ordinal()] = (DayTimes[DayPoint.Fajr.ordinal()] + DayTimes[DayPoint.Maghrib.ordinal()] + 24) / 2.0;
 
         return DayTimes;
     }
@@ -152,8 +153,8 @@ public class PrayerTime {
     }
 
     // compute mid-day (Dhuhr, Zawal) time
-    private double computeMidDay(double t) {
-        double T = computeEquationOfTime(this.JDate + t);
+    private double computeMidDay(double init_time) {
+        double T = computeEquationOfTime(this.JDate + init_time);
         double Z = fixHour(12 - T);
         return Z;
     }
@@ -162,7 +163,7 @@ public class PrayerTime {
     // Shafii: step=1, Hanafi: step=2
     private double computeAsr() {
         double step = 0;
-        double t = 13.0 / 24.0;
+        double init_time = 13.0 / 24.0;
         if (asrJuristic == JuristicMethod.HANAFI)
             step = 2;
         else if (asrJuristic == JuristicMethod.SHAFAI)
@@ -170,9 +171,9 @@ public class PrayerTime {
         else if (asrJuristic == JuristicMethod.JAFARI)
             step = 1;
 
-        double D = computeSunDeclination(this.JDate + t);
+        double D = computeSunDeclination(this.JDate + init_time);
         double Angle = -darccot(step + dtan(Math.abs(this.lat - D)));
-        return computeTime(Angle, t);
+        return computeTime(Angle, init_time);
     }
 
     private double computeFajar() {
@@ -186,7 +187,7 @@ public class PrayerTime {
         // Tehran   double[] Tvalues = {17.7, 0, 4.5, 0, 14};
         // Custom   double[] Cvalues = {18, 1, 0, 0, 17};
 
-        double t = 5.0 / 24.0;
+        double init_time = 5.0 / 24.0;
         double FajarAngle = 180.0;
 
         switch (calcMethod) {
@@ -217,14 +218,26 @@ public class PrayerTime {
                 break;
         }
 
-        return computeTime(FajarAngle, t);
+        return computeTime(FajarAngle, init_time);
+    }
+
+    private double computeFastingStart() {
+        double init_time = 5.0 / 24.0;
+        double ImsakAngle = 180.0 - 19;
+        return computeTime(ImsakAngle, init_time);
+    }
+
+    private double computeAstroTwilight() {
+        double t = 5.0 / 24.0;
+        double AstroTwilightAngle = 180.0 - 18;
+        return computeTime(AstroTwilightAngle, t);
     }
 
     private double computeSunRise() {
         double G = 180 - 0.833;
         double t = 6.0 / 24.0;
-        double sr = computeTime(G, t);
-        return sr;
+        double sun_rise = computeTime(G, t);
+        return sun_rise;
     }
 
     private double computeZohar() {
@@ -233,9 +246,9 @@ public class PrayerTime {
 
     private double computeSunSet() {
         double G = 0.833;
-        double t = 18.0 / 24.0;
-        double ss = computeTime(G, t);
-        return ss;
+        double init_time = 18.0 / 24.0;
+        double sun_set = computeTime(G, init_time);
+        return sun_set;
     }
 
     private double computeMaghrib() {

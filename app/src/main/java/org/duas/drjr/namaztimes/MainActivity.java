@@ -103,7 +103,10 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
 
         DailyTimeContent.DailyTime dailyTime;
 
-        dailyTime = new DailyTimeContent.DailyTime("Sehri End", "Sehri End Time", prayerTimes.get(0), prayerTimes2.get(DayPoint.Imsak.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("Sawm Start", "Start of Fasting", prayerTimes.get(0), prayerTimes2.get(DayPoint.FastingStart.ordinal()));
+        dailyTimeList.add(dailyTime);
+
+        dailyTime = new DailyTimeContent.DailyTime("Twilight", "Astro Twilight", prayerTimes.get(0), prayerTimes2.get(DayPoint.AstroTwilight.ordinal()));
         dailyTimeList.add(dailyTime);
 
         dailyTime = new DailyTimeContent.DailyTime("Fajar", "Azan-Namaz Fajar Time", prayerTimes.get(0), prayerTimes2.get(DayPoint.Fajr.ordinal()));
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         dailyTime = new DailyTimeContent.DailyTime("Isha", "Azan-Namaz Isha Time", prayerTimes.get(6), prayerTimes2.get(DayPoint.Isha.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("MidNight", "Mid night", prayerTimes.get(6), prayerTimes2.get(DayPoint.Midnight.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("MidNight", "Namaz Isha Qaza", prayerTimes.get(6), prayerTimes2.get(DayPoint.Midnight.ordinal()));
         dailyTimeList.add(dailyTime);
 
         recyclerView = (RecyclerView) findViewById(R.id.dailytime_list_main);

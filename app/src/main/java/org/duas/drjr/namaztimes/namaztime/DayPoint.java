@@ -5,7 +5,8 @@ package org.duas.drjr.namaztimes.namaztime;
  */
 
 public enum DayPoint {
-    Imsak,
+    FastingStart,
+    AstroTwilight,
     Fajr,
     Sunrise,
     Dhuhr,
