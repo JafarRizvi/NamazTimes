@@ -162,7 +162,7 @@ public class PrayerTime {
     // compute the time of Asr
     // Shafii: step=1, Hanafi: step=2
     private double computeAsr() {
-        double step = 0;
+        double step = 1;
         double init_time = 13.0 / 24.0;
         if (asrJuristic == JuristicMethod.HANAFI)
             step = 2;
@@ -422,7 +422,6 @@ public class PrayerTime {
 
         return JD;
     }
-
 
     // adjust times in a prayer time array
     private double[] adjustTimes(double[] times) {
