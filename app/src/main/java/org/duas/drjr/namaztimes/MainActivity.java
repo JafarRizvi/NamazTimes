@@ -8,6 +8,7 @@ import org.duas.drjr.namaztimes.namaztime.PrayTime;
 import org.duas.drjr.namaztimes.namaztime.PrayerTime;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -95,7 +96,8 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.pref) {
-            Log.d("pref", "Preference is clicked!");
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
         } else if (item.getItemId() == R.id.location) {
             Log.d("Location", "Location is clicked!");
         }
