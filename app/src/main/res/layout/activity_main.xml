@@ -109,9 +109,9 @@
         android:name="org.duas.drjr.namaztimes.DailyTimeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/text_margin"
-        android:layout_marginRight="@dimen/text_margin"
-        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/horizontal_text_margin"
+        android:layout_marginRight="@dimen/horizontal_text_margin"
+        android:layout_marginTop="@dimen/vertical_text_margin"
         app:layoutManager="LinearLayoutManager"
         tools:context="org.duas.drjr.namaztimes.DailyTimeFragment"
         tools:listitem="@layout/dailytime_row" />

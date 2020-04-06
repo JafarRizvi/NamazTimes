@@ -37,16 +37,7 @@ public class DailyTimeContent {
     }
 
     private static DailyTime createDummyItem(int position) {
-        return new DailyTime(String.valueOf(position), "Item " + position, makeDetails(position), "--");
-    }
-
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
+        return new DailyTime(String.valueOf(position), "--");
     }
 
     /**
@@ -54,20 +45,20 @@ public class DailyTimeContent {
      */
     public static class DailyTime {
         public final String title;
-        public final String description;
+        //public final String description;
         public final String time;
-        public final String time2;
+        //public final String time2;
 
-        public DailyTime(String title, String description, String time, String time2) {
+        public DailyTime(String title, String time) {
             this.title = title;
-            this.description = description;
+            //this.description = description;
             this.time = time;
-            this.time2 = time2;
+            //this.time2 = time2;
         }
 
         @Override
         public String toString() {
-            return description;
+            return title;
         }
     }
 }

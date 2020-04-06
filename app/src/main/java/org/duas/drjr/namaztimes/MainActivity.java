@@ -108,54 +108,45 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
 
     private void prepareDailyTimeData() {
         // Test Prayer times here
-        PrayTime prayers = new PrayTime();
-        PrayerTime prayer2 = new PrayerTime();
-        prayers.setTimeFormat(1);
-        prayers.setCalcMethod(0);
-        prayers.setAsrJuristic(0);
-        prayers.setAdjustHighLats(3);
-        int[] offsets = {0, 0, 0, 0, 0, 0, 0}; // {Fajr,Sunrise,Dhuhr,Asr,Sunset,Maghrib,Isha}
-        prayers.tune(offsets);
-
+        PrayerTime prayer = new PrayerTime();
         Date now = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(now);
 
-        ArrayList<String> prayerTimes = prayers.getPrayerTimes(cal, latitude, longitude, timezone);
-        ArrayList<String> prayerTimes2 = prayer2.getPrayerTimes(cal, latitude, longitude, timezone);
+        ArrayList<String> prayerTimes = prayer.getPrayerTimes(cal, latitude, longitude, timezone);
 
         dailyTimeList = new ArrayList<DailyTimeContent.DailyTime>();
 
         DailyTimeContent.DailyTime dailyTime;
 
-        dailyTime = new DailyTimeContent.DailyTime("Sawm Start", "Start of Fasting", prayerTimes.get(0), prayerTimes2.get(DayPoint.FastingStart.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("روزے کا وقت شروع", prayerTimes.get(DayPoint.FastingStart.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Twilight", "Astro Twilight", prayerTimes.get(0), prayerTimes2.get(DayPoint.AstroTwilight.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("صبح صادق", prayerTimes.get(DayPoint.AstroTwilight.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Fajar", "Azan-Namaz Fajar Time", prayerTimes.get(0), prayerTimes2.get(DayPoint.Fajr.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("اذان اور نماز فجر کا وقت", prayerTimes.get(DayPoint.Fajr.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Sun Rise", "Sun Rise", prayerTimes.get(1), prayerTimes2.get(DayPoint.Sunrise.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("طلوع آفتاب", prayerTimes.get(DayPoint.Sunrise.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Zohar", "Azan-Namaz Zohar Time", prayerTimes.get(2), prayerTimes2.get(DayPoint.Dhuhr.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("نماز ظہر کا وقت", prayerTimes.get(DayPoint.Dhuhr.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Asar", "Azan-Namaz Asar Time", prayerTimes.get(3), prayerTimes2.get(DayPoint.Asr.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("نماز عصر کا وقت", prayerTimes.get(DayPoint.Asr.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Sun Set", "Sun Set", prayerTimes.get(4), prayerTimes2.get(DayPoint.Sunset.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("غروب آفتاب", prayerTimes.get(DayPoint.Sunset.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Maghrib", "Azan-Namaz Maghrib Time", prayerTimes.get(5), prayerTimes2.get(DayPoint.Maghrib.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("نماز مغرب اور روزہ کھولنے کا وقت", prayerTimes.get(DayPoint.Maghrib.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("Isha", "Azan-Namaz Isha Time", prayerTimes.get(6), prayerTimes2.get(DayPoint.Isha.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("نماز عشاء کا وقت", prayerTimes.get(DayPoint.Isha.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("MidNight", "Namaz Isha Qaza", prayerTimes.get(6), prayerTimes2.get(DayPoint.Midnight.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("نماز عشاء کا وقت", prayerTimes.get(DayPoint.Midnight.ordinal()));
         dailyTimeList.add(dailyTime);
 
         recyclerView = (RecyclerView) findViewById(R.id.dailytime_list_main);

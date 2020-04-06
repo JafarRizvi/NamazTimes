@@ -34,9 +34,9 @@ public class MyDailyTimeRecyclerViewAdapter extends RecyclerView.Adapter<MyDaily
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mTitleView.setText(mValues.get(position).title);
-        holder.mContentView.setText(mValues.get(position).description);
+        //holder.mContentView.setText(mValues.get(position).description);
+        //holder.mTimeView.setText(mValues.get(position).time);
         holder.mTimeView.setText(mValues.get(position).time);
-        holder.mTime2View.setText(mValues.get(position).time2);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,23 +58,23 @@ public class MyDailyTimeRecyclerViewAdapter extends RecyclerView.Adapter<MyDaily
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mTitleView;
-        public final TextView mContentView;
+        //public final TextView mContentView;
         public final TextView mTimeView;
-        public final TextView mTime2View;
+        //public final TextView mTime2View;
         public DailyTime mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mTitleView = (TextView) view.findViewById(R.id.title);
-            mContentView = (TextView) view.findViewById(R.id.description);
+            //mContentView = (TextView) view.findViewById(R.id.description);
+            //mTimeView = (TextView) view.findViewById(R.id.time);
             mTimeView = (TextView) view.findViewById(R.id.time);
-            mTime2View = (TextView) view.findViewById(R.id.time2);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString();
         }
     }
 }
