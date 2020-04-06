@@ -17,7 +17,8 @@
         android:padding="5dp"
         android:text="@string/today_date"
         android:textAlignment="center"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        android:gravity="center_horizontal" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -35,7 +36,8 @@
                 android:padding="2dp"
                 android:text="Latitute:"
                 android:textAlignment="center"
-                android:textSize="23sp" />
+                android:textSize="23sp"
+                android:gravity="center_horizontal" />
 
             <EditText
                 android:id="@+id/editLatitude"
@@ -57,7 +59,8 @@
                 android:padding="2dp"
                 android:text="Longitude:"
                 android:textAlignment="center"
-                android:textSize="23sp" />
+                android:textSize="23sp"
+                android:gravity="center_horizontal" />
 
             <EditText
                 android:id="@+id/editLongitude"
@@ -79,7 +82,8 @@
                 android:padding="2dp"
                 android:text="Time Zone:"
                 android:textAlignment="center"
-                android:textSize="23sp" />
+                android:textSize="23sp"
+                android:gravity="center_horizontal" />
 
             <EditText
                 android:id="@+id/editTimeZone"
