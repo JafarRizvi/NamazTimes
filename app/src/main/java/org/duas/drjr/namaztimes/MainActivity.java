@@ -1,13 +1,10 @@
 package org.duas.drjr.namaztimes;
 
 import org.duas.drjr.namaztimes.DailyTimeFragment.OnListFragmentInteractionListener;
-import org.duas.drjr.namaztimes.namaztime.CalculationMethod;
-import org.duas.drjr.namaztimes.namaztime.DailyTimeContent;
-import org.duas.drjr.namaztimes.namaztime.DayPoint;
-import org.duas.drjr.namaztimes.namaztime.PrayTime;
-import org.duas.drjr.namaztimes.namaztime.PrayerTime;
+import org.duas.drjr.namaztimes.logic.DailyTimeContent;
+import org.duas.drjr.namaztimes.logic.DayPoint;
+import org.duas.drjr.namaztimes.logic.PrayerTime;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
@@ -32,8 +29,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements OnListFragmentInteractionListener {
 

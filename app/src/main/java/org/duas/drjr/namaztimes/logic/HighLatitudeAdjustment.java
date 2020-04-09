@@ -1,4 +1,4 @@
-package org.duas.drjr.namaztimes.namaztime;
+package org.duas.drjr.namaztimes.logic;
 
 /**
  * Created by JafarRizvi on 12-Aug-2016.

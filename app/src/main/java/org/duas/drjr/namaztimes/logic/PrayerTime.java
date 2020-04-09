@@ -1,9 +1,8 @@
-package org.duas.drjr.namaztimes.namaztime;
+package org.duas.drjr.namaztimes.logic;
 
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.TimeZone;
 
 /**
  * Created by JafarRizvi on 12-Aug-2016.

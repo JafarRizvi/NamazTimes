@@ -13,6 +13,9 @@ public interface CityDao {
     @Query("SELECT * FROM cities ORDER BY city")
     LiveData<List<City>> getCities();
 
+    @Query("SELECT DISTINCT province FROM cities")
+    LiveData<List<String>> getProvinces();
+
     @Query("SELECT * FROM cities WHERE province = :province ORDER BY city")
     LiveData<List<City>> getCitiesForProvince(String province);
 

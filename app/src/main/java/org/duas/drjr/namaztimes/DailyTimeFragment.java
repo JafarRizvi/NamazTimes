@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.duas.drjr.namaztimes.namaztime.DailyTimeContent;
+import org.duas.drjr.namaztimes.logic.DailyTimeContent;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

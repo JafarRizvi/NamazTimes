@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.duas.drjr.namaztimes.DailyTimeFragment.OnListFragmentInteractionListener;
-import org.duas.drjr.namaztimes.namaztime.DailyTimeContent.DailyTime;
+import org.duas.drjr.namaztimes.logic.DailyTimeContent.DailyTime;
 
 import java.util.List;
 
