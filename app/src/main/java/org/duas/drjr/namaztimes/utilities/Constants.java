@@ -6,5 +6,5 @@ package org.duas.drjr.namaztimes.utilities;
 
 public class Constants {
     public static final String DATABASE_NAME = "cityLocation-db";
-    public static final String PLANT_DATA_FILENAME = "pk_lat_long.json";
+    public static final String CITY_DATA_FILENAME = "pk_lat_long.json";
 }
