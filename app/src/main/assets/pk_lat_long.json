@@ -1,0 +1,866 @@
+[
+  {
+    "city": "Athmuqam",
+    "latitude": 34.571733,
+    "longitude": 73.897236,
+    "province": "Azad Kashmir"
+  },
+  {
+    "city": "Bagh",
+    "latitude": 33.981106,
+    "longitude": 73.776084,
+    "province": "Azad Kashmir"
+  },
+  {
+    "city": "Kotli",
+    "latitude": 33.518362,
+    "longitude": 73.902203,
+    "province": "Azad Kashmir"
+  },
+  {
+    "city": "Muzaffarabad",
+    "latitude": 34.3551,
+    "longitude": 73.4769,
+    "province": "Azad Kashmir"
+  },
+  {
+    "city": "New Mirpur",
+    "latitude": 33.147815,
+    "longitude": 73.751867,
+    "province": "Azad Kashmir"
+  },
+  {
+    "city": "Rawala Kot",
+    "latitude": 33.857816,
+    "longitude": 73.760426,
+    "province": "Azad Kashmir"
+  },
+  {
+    "city": "Awaran",
+    "latitude": 26.456768,
+    "longitude": 65.231436,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Barkhan",
+    "latitude": 29.897727,
+    "longitude": 69.525584,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Chaman",
+    "latitude": 30.917689,
+    "longitude": 66.45259,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Dalbandin",
+    "latitude": 28.888456,
+    "longitude": 64.406156,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Dera Allahyar",
+    "latitude": 28.373529,
+    "longitude": 68.350778,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Dera Bugti",
+    "latitude": 29.036188,
+    "longitude": 69.158493,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Dera Murad Jamali",
+    "latitude": 28.546568,
+    "longitude": 68.223081,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Gandava",
+    "latitude": 28.613207,
+    "longitude": 67.485643,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Gwadar",
+    "latitude": 25.12163,
+    "longitude": 62.325411,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Kalat",
+    "latitude": 29.026629,
+    "longitude": 66.593607,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Kharan",
+    "latitude": 28.584585,
+    "longitude": 65.415007,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Khuzdar",
+    "latitude": 27.738385,
+    "longitude": 66.643365,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Kohlu",
+    "latitude": 29.896505,
+    "longitude": 69.253235,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Loralai",
+    "latitude": 30.370512,
+    "longitude": 68.597949,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Mastung",
+    "latitude": 29.799656,
+    "longitude": 66.845527,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Musa Khel Bazar",
+    "latitude": 30.859443,
+    "longitude": 69.82208,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Panjgur",
+    "latitude": 26.971861,
+    "longitude": 64.094594,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Pishin",
+    "latitude": 30.581762,
+    "longitude": 66.994061,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Qila Abdullah",
+    "latitude": 30.728035,
+    "longitude": 66.661174,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Qila Saifullah",
+    "latitude": 30.700766,
+    "longitude": 68.359843,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Quetta",
+    "latitude": 30.184138,
+    "longitude": 67.00141,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Sibi",
+    "latitude": 29.542989,
+    "longitude": 67.87726,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Taftan",
+    "latitude": 28.9604,
+    "longitude": 61.5778,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Turbat",
+    "latitude": 26.001224,
+    "longitude": 63.048491,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Uthal",
+    "latitude": 25.807222,
+    "longitude": 66.621944,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Zhob",
+    "latitude": 31.340817,
+    "longitude": 69.449304,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Ziarat",
+    "latitude": 30.382444,
+    "longitude": 67.725624,
+    "province": "Balochistan"
+  },
+  {
+    "city": "Aliabad",
+    "latitude": 36.307028,
+    "longitude": 74.615449,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Askurdas",
+    "latitude": 36.2999,
+    "longitude": 74.6371,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Astore",
+    "latitude": 35.357,
+    "longitude": 74.8624,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Attabad Lake",
+    "latitude": 36.319,
+    "longitude": 74.8653,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Chilas",
+    "latitude": 35.412867,
+    "longitude": 74.104068,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Eidgah",
+    "latitude": 35.347115,
+    "longitude": 74.856317,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Gakuch",
+    "latitude": 36.176826,
+    "longitude": 73.763834,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Gilgit",
+    "latitude": 35.8819,
+    "longitude": 74.4643,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Gojal",
+    "latitude": 36.6058,
+    "longitude": 74.7337,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Gulmit",
+    "latitude": 36.3891,
+    "longitude": 74.8651,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Hunza",
+    "latitude": 36.3167,
+    "longitude": 74.65,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Karimabad",
+    "latitude": 36.3264,
+    "longitude": 74.6643,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Khaplu",
+    "latitude": 36.1611,
+    "longitude": 76.3319,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Minapin",
+    "latitude": 36.2509,
+    "longitude": 74.5361,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Nagar Khas",
+    "latitude": 36.2764,
+    "longitude": 74.72,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Shigar",
+    "latitude": 35.4765,
+    "longitude": 75.6964,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Skardu",
+    "latitude": 35.3247,
+    "longitude": 75.551,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Sost",
+    "latitude": 36.6572,
+    "longitude": 74.8449,
+    "province": "Gilgit-Baltistan"
+  },
+  {
+    "city": "Islamabad",
+    "latitude": 33.69,
+    "longitude": 73.0551,
+    "province": "Islamabad"
+  },
+  {
+    "city": "Abbottabad",
+    "latitude": 34.1463,
+    "longitude": 73.211684,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Alpurai",
+    "latitude": 34.920577,
+    "longitude": 72.632556,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Bannu",
+    "latitude": 32.985414,
+    "longitude": 70.602701,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Bardar",
+    "latitude": 34.163737,
+    "longitude": 72.011571,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Batgram",
+    "latitude": 34.679637,
+    "longitude": 73.026299,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Charsadda",
+    "latitude": 34.148221,
+    "longitude": 71.740604,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Chitral",
+    "latitude": 35.851802,
+    "longitude": 71.786358,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Daggar",
+    "latitude": 34.511059,
+    "longitude": 72.484375,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Dasu",
+    "latitude": 35.291687,
+    "longitude": 73.290602,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Dera Ismail Khan",
+    "latitude": 31.832691,
+    "longitude": 70.902398,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Hangu",
+    "latitude": 33.53198,
+    "longitude": 71.059499,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Haripur",
+    "latitude": 33.999967,
+    "longitude": 72.934093,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Karak",
+    "latitude": 33.116334,
+    "longitude": 71.093536,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Kohat",
+    "latitude": 33.581958,
+    "longitude": 71.449291,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Lakki Marwat",
+    "latitude": 32.607953,
+    "longitude": 70.911416,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Malakand",
+    "latitude": 34.565609,
+    "longitude": 71.930432,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Mansehra",
+    "latitude": 34.330232,
+    "longitude": 73.196788,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Mardan",
+    "latitude": 34.197943,
+    "longitude": 72.04965,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Mehra",
+    "latitude": 34.312817,
+    "longitude": 73.220525,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Naran",
+    "latitude": 34.9093,
+    "longitude": 73.6507,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Nowshera",
+    "latitude": 34.015828,
+    "longitude": 71.981232,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Parachinar",
+    "latitude": 33.895672,
+    "longitude": 70.098875,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Peshawar",
+    "latitude": 34.008,
+    "longitude": 71.578488,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Saidu Sharif",
+    "latitude": 34.746548,
+    "longitude": 72.355675,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Serai",
+    "latitude": 34.73933,
+    "longitude": 72.335655,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Swabi",
+    "latitude": 34.120181,
+    "longitude": 72.46982,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Tank",
+    "latitude": 32.217071,
+    "longitude": 70.383154,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Timargara",
+    "latitude": 34.826595,
+    "longitude": 71.844226,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Upper Dir",
+    "latitude": 35.207398,
+    "longitude": 71.876801,
+    "province": "Khyber Pakhtunkhwa"
+  },
+  {
+    "city": "Attock City",
+    "latitude": 33.76671,
+    "longitude": 72.359766,
+    "province": "Punjab"
+  },
+  {
+    "city": "Bahawalnagar",
+    "latitude": 29.998659,
+    "longitude": 73.253604,
+    "province": "Punjab"
+  },
+  {
+    "city": "Bahawalpur",
+    "latitude": 29.4,
+    "longitude": 71.683333,
+    "province": "Punjab"
+  },
+  {
+    "city": "Bhakkar",
+    "latitude": 31.625247,
+    "longitude": 71.06574,
+    "province": "Punjab"
+  },
+  {
+    "city": "Chakwal",
+    "latitude": 32.933376,
+    "longitude": 72.858531,
+    "province": "Punjab"
+  },
+  {
+    "city": "Chashma",
+    "latitude": 32.4111,
+    "longitude": 71.4448,
+    "province": "Punjab"
+  },
+  {
+    "city": "Chiniot",
+    "latitude": 31.72,
+    "longitude": 72.978889,
+    "province": "Punjab"
+  },
+  {
+    "city": "Dera Ghazi Khan",
+    "latitude": 30.056142,
+    "longitude": 70.634766,
+    "province": "Punjab"
+  },
+  {
+    "city": "Faisalabad",
+    "latitude": 31.416667,
+    "longitude": 73.083333,
+    "province": "Punjab"
+  },
+  {
+    "city": "Gujranwala",
+    "latitude": 32.155667,
+    "longitude": 74.187052,
+    "province": "Punjab"
+  },
+  {
+    "city": "Gujrat",
+    "latitude": 32.574204,
+    "longitude": 74.075423,
+    "province": "Punjab"
+  },
+  {
+    "city": "Hafizabad",
+    "latitude": 32.067857,
+    "longitude": 73.685449,
+    "province": "Punjab"
+  },
+  {
+    "city": "Jhang City",
+    "latitude": 31.305684,
+    "longitude": 72.325941,
+    "province": "Punjab"
+  },
+  {
+    "city": "Jhang Sadr",
+    "latitude": 31.269811,
+    "longitude": 72.316867,
+    "province": "Punjab"
+  },
+  {
+    "city": "Jhelum",
+    "latitude": 32.934484,
+    "longitude": 73.731018,
+    "province": "Punjab"
+  },
+  {
+    "city": "Kasur",
+    "latitude": 31.115556,
+    "longitude": 74.446667,
+    "province": "Punjab"
+  },
+  {
+    "city": "Khanewal",
+    "latitude": 30.301731,
+    "longitude": 71.932124,
+    "province": "Punjab"
+  },
+  {
+    "city": "Khushab",
+    "latitude": 32.296667,
+    "longitude": 72.3525,
+    "province": "Punjab"
+  },
+  {
+    "city": "Kundian",
+    "latitude": 32.457747,
+    "longitude": 71.478918,
+    "province": "Punjab"
+  },
+  {
+    "city": "Lahore",
+    "latitude": 31.549722,
+    "longitude": 74.343611,
+    "province": "Punjab"
+  },
+  {
+    "city": "Leiah",
+    "latitude": 30.961279,
+    "longitude": 70.939043,
+    "province": "Punjab"
+  },
+  {
+    "city": "Lodhran",
+    "latitude": 29.540507,
+    "longitude": 71.63357,
+    "province": "Punjab"
+  },
+  {
+    "city": "Mandi Bahauddin",
+    "latitude": 32.587037,
+    "longitude": 73.491231,
+    "province": "Punjab"
+  },
+  {
+    "city": "Masiwala",
+    "latitude": 30.683333,
+    "longitude": 73.066667,
+    "province": "Punjab"
+  },
+  {
+    "city": "Mianwali",
+    "latitude": 32.574095,
+    "longitude": 71.526386,
+    "province": "Punjab"
+  },
+  {
+    "city": "Multan",
+    "latitude": 30.196789,
+    "longitude": 71.478241,
+    "province": "Punjab"
+  },
+  {
+    "city": "Muzaffargarh",
+    "latitude": 30.072576,
+    "longitude": 71.193788,
+    "province": "Punjab"
+  },
+  {
+    "city": "Nankana Sahib",
+    "latitude": 31.4475,
+    "longitude": 73.697222,
+    "province": "Punjab"
+  },
+  {
+    "city": "Narowal",
+    "latitude": 32.1,
+    "longitude": 74.883333,
+    "province": "Punjab"
+  },
+  {
+    "city": "Okara",
+    "latitude": 30.808056,
+    "longitude": 73.445833,
+    "province": "Punjab"
+  },
+  {
+    "city": "Pakpattan",
+    "latitude": 30.341044,
+    "longitude": 73.386642,
+    "province": "Punjab"
+  },
+  {
+    "city": "Rahimyar Khan",
+    "latitude": 28.419482,
+    "longitude": 70.302386,
+    "province": "Punjab"
+  },
+  {
+    "city": "Rajanpur",
+    "latitude": 29.103513,
+    "longitude": 70.325038,
+    "province": "Punjab"
+  },
+  {
+    "city": "Rawalpindi",
+    "latitude": 33.597331,
+    "longitude": 73.047904,
+    "province": "Punjab"
+  },
+  {
+    "city": "Sadiqabad",
+    "latitude": 28.30623,
+    "longitude": 70.130646,
+    "province": "Punjab"
+  },
+  {
+    "city": "Sahiwal",
+    "latitude": 30.666667,
+    "longitude": 73.1,
+    "province": "Punjab"
+  },
+  {
+    "city": "Sargodha",
+    "latitude": 32.083611,
+    "longitude": 72.671111,
+    "province": "Punjab"
+  },
+  {
+    "city": "Sheikhupura",
+    "latitude": 31.713056,
+    "longitude": 73.978333,
+    "province": "Punjab"
+  },
+  {
+    "city": "Sialkot City",
+    "latitude": 32.499101,
+    "longitude": 74.52502,
+    "province": "Punjab"
+  },
+  {
+    "city": "Toba Tek Singh",
+    "latitude": 30.974326,
+    "longitude": 72.482694,
+    "province": "Punjab"
+  },
+  {
+    "city": "Vihari",
+    "latitude": 30.033333,
+    "longitude": 72.35,
+    "province": "Punjab"
+  },
+  {
+    "city": "Badin",
+    "latitude": 24.655995,
+    "longitude": 68.836997,
+    "province": "Sindh"
+  },
+  {
+    "city": "Dadu",
+    "latitude": 26.730334,
+    "longitude": 67.776896,
+    "province": "Sindh"
+  },
+  {
+    "city": "Ghotki",
+    "latitude": 28.00604,
+    "longitude": 69.316077,
+    "province": "Sindh"
+  },
+  {
+    "city": "Hyderabad City",
+    "latitude": 25.396891,
+    "longitude": 68.377183,
+    "province": "Sindh"
+  },
+  {
+    "city": "Jacobabad",
+    "latitude": 28.281873,
+    "longitude": 68.437613,
+    "province": "Sindh"
+  },
+  {
+    "city": "Jamshoro",
+    "latitude": 25.436078,
+    "longitude": 68.280172,
+    "province": "Sindh"
+  },
+  {
+    "city": "Kandhkot",
+    "latitude": 28.243963,
+    "longitude": 69.182354,
+    "province": "Sindh"
+  },
+  {
+    "city": "Karachi",
+    "latitude": 24.9056,
+    "longitude": 67.0822,
+    "province": "Sindh"
+  },
+  {
+    "city": "Khairpur",
+    "latitude": 27.529483,
+    "longitude": 68.761698,
+    "province": "Sindh"
+  },
+  {
+    "city": "Larkana",
+    "latitude": 27.558985,
+    "longitude": 68.212035,
+    "province": "Sindh"
+  },
+  {
+    "city": "Matiari",
+    "latitude": 25.59709,
+    "longitude": 68.4467,
+    "province": "Sindh"
+  },
+  {
+    "city": "Mirpur Khas",
+    "latitude": 25.5251,
+    "longitude": 69.0159,
+    "province": "Sindh"
+  },
+  {
+    "city": "Naushahro Firoz",
+    "latitude": 26.840104,
+    "longitude": 68.122651,
+    "province": "Sindh"
+  },
+  {
+    "city": "Nawabshah",
+    "latitude": 26.248334,
+    "longitude": 68.409554,
+    "province": "Sindh"
+  },
+  {
+    "city": "Sanghar",
+    "latitude": 26.046558,
+    "longitude": 68.9481,
+    "province": "Sindh"
+  },
+  {
+    "city": "Shahdad Kot",
+    "latitude": 27.847263,
+    "longitude": 67.906789,
+    "province": "Sindh"
+  },
+  {
+    "city": "Shikarpur",
+    "latitude": 27.957057,
+    "longitude": 68.637886,
+    "province": "Sindh"
+  },
+  {
+    "city": "Sukkur",
+    "latitude": 27.705164,
+    "longitude": 68.857383,
+    "province": "Sindh"
+  },
+  {
+    "city": "Tando Allahyar",
+    "latitude": 25.462626,
+    "longitude": 68.719233,
+    "province": "Sindh"
+  },
+  {
+    "city": "Tando Muhammad Khan",
+    "latitude": 25.123007,
+    "longitude": 68.535773,
+    "province": "Sindh"
+  },
+  {
+    "city": "Thatta",
+    "latitude": 24.747449,
+    "longitude": 67.923528,
+    "province": "Sindh"
+  },
+  {
+    "city": "Umarkot",
+    "latitude": 25.36157,
+    "longitude": 69.736241,
+    "province": "Sindh"
+  }
+]

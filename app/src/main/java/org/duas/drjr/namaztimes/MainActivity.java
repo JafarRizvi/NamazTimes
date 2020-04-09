@@ -119,13 +119,13 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
 
         DailyTimeContent.DailyTime dailyTime;
 
-        dailyTime = new DailyTimeContent.DailyTime("روزے کا وقت شروع", prayerTimes.get(DayPoint.FastingStart.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("روزے کا وقت شروع احتیاط", prayerTimes.get(DayPoint.FastingStart.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("صبح صادق", prayerTimes.get(DayPoint.AstroTwilight.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("صبح صادق کے وقت کا بہتر اندازہ", prayerTimes.get(DayPoint.AstroTwilight.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("اذان اور نماز فجر کا وقت", prayerTimes.get(DayPoint.Fajr.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("اذان فجر اور نماز فجر کا وقت", prayerTimes.get(DayPoint.Fajr.ordinal()));
         dailyTimeList.add(dailyTime);
 
         dailyTime = new DailyTimeContent.DailyTime("طلوع آفتاب", prayerTimes.get(DayPoint.Sunrise.ordinal()));
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         dailyTime = new DailyTimeContent.DailyTime("نماز ظہر کا وقت", prayerTimes.get(DayPoint.Dhuhr.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("نماز عصر کا وقت", prayerTimes.get(DayPoint.Asr.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("نماز عصر کا وقت فضیلت", prayerTimes.get(DayPoint.Asr.ordinal()));
         dailyTimeList.add(dailyTime);
 
         dailyTime = new DailyTimeContent.DailyTime("غروب آفتاب", prayerTimes.get(DayPoint.Sunset.ordinal()));
@@ -143,10 +143,10 @@ public class MainActivity extends AppCompatActivity implements OnListFragmentInt
         dailyTime = new DailyTimeContent.DailyTime("نماز مغرب اور روزہ کھولنے کا وقت", prayerTimes.get(DayPoint.Maghrib.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("نماز عشاء کا وقت", prayerTimes.get(DayPoint.Isha.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("نماز عشاء کا وقت فضیلت", prayerTimes.get(DayPoint.Isha.ordinal()));
         dailyTimeList.add(dailyTime);
 
-        dailyTime = new DailyTimeContent.DailyTime("نماز عشاء کا وقت", prayerTimes.get(DayPoint.Midnight.ordinal()));
+        dailyTime = new DailyTimeContent.DailyTime("نماز عشاء کا وقت ختم", prayerTimes.get(DayPoint.Midnight.ordinal()));
         dailyTimeList.add(dailyTime);
 
         recyclerView = (RecyclerView) findViewById(R.id.dailytime_list_main);

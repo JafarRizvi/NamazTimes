@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "org.duas.drjr.namaztimes"
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -21,8 +21,10 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'androidx.core:core:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    testImplementation 'junit:junit:4.13'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'com.google.android.material:material:1.1.0'
 }
